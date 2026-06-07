@@ -38,7 +38,7 @@ public class FileController {
 
     @PostMapping
     @ApiOperation("文件上传")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 1)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 1)
     public Result<Object> add(@RequestParam(defaultValue = "") String dir, @RequestParam MultipartFile[] files)
             throws IOException {
         if (dir == null || dir.trim().isEmpty())
@@ -97,7 +97,7 @@ public class FileController {
 
     @DeleteMapping
     @ApiOperation("删除文件")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 2)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 2)
     public Result<String> del(@RequestParam String filePath) {
         String url = filePath.startsWith("https://") ? filePath : "https://" + filePath;
         boolean delete = fileStorageService.delete(url);
@@ -106,7 +106,7 @@ public class FileController {
 
     @DeleteMapping("/batch")
     @ApiOperation("批量删除文件")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 3)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 3)
     public Result batchDel(@RequestBody String[] pathList) throws QiniuException {
         for (String url : pathList) {
             boolean delete = fileStorageService.delete(url.startsWith("https://") ? url : "https://" + url);
@@ -118,7 +118,7 @@ public class FileController {
 
     @GetMapping("/info")
     @ApiOperation("获取文件信息")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 4)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 4)
     public Result<FileInfo> get(@RequestParam String filePath) throws QiniuException {
         FileInfo fileInfo = fileStorageService.getFileInfoByUrl(filePath);
         return Result.success(fileInfo);
@@ -126,7 +126,7 @@ public class FileController {
 
     @GetMapping("/dir")
     @ApiOperation("获取目录列表")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 5)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 5)
     public Result<List<Map>> getDirList() {
         ListFilesResult result = fileStorageService.listFiles()
                 .setPlatform(OssUtils.getPlatform())
@@ -148,7 +148,7 @@ public class FileController {
 
     @GetMapping("/list")
     @ApiOperation("获取指定目录中的文件")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 5)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 5)
     public Result<Map<String, Object>> getFileList(
             @RequestParam String dir,
             @RequestParam(defaultValue = "1") Integer page,

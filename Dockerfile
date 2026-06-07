@@ -37,7 +37,7 @@ WORKDIR /server
 # 添加第一阶段编译好的源码
 COPY --from=db_builder /database-initialized/database-initialized /server/database-initialized
 # 添加jar包
-ADD https://github.com/LiuYuYang01/ThriveX-Server/releases/download/${VERSION}/blog.jar /server/app.jar
+ADD https://github.com/zxilong37/ThriveX-Server/releases/download/${VERSION}/blog.jar /server/app.jar
 # 添加启动脚本
 COPY RUN.sh /server/RUN.sh
 # 添加SQL脚本

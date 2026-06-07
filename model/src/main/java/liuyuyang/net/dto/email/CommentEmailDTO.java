@@ -13,6 +13,6 @@ public class CommentEmailDTO extends EmailDTO {
     String time;
     @ApiModelProperty(value = "评论内容", example = "这是一段内容", required = true)
     String content;
-    @ApiModelProperty(value = "文章地址", example = "https://liuyuyang.net", required = true)
+    @ApiModelProperty(value = "文章地址", example = "https://github.com/zxilong37", required = true)
     String url;
 }

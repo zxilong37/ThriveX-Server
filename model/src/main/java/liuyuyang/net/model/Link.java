@@ -12,7 +12,7 @@ public class Link extends BaseModel {
     private String title;
     @ApiModelProperty(value = "网站描述", example = "这是一个网站的描述", required = true)
     private String description;
-    @ApiModelProperty(value = "网站邮箱", example = "liuyuyang1024@yeah.net")
+    @ApiModelProperty(value = "网站邮箱", example = "2069065992@qq.com")
     private String email;
     @ApiModelProperty(value = "网站类型", example = "1", required = true)
     private Integer typeId;

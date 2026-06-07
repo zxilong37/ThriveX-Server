@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://liuyuyang.net" target="_blank">
+    <a href="https://github.com/zxilong37" target="_blank">
         <img width="120" src="https://bu.dusays.com/2024/11/17/6739adf188f64.png" alt="ThriveX logo" />
     </a>
 </p>
@@ -8,14 +8,14 @@
 
 
 <p align="center">
-    <a href="https://github.com/LiuYuYang01/ThriveX-Server/blob/main/LICENSE" target="_blank">
+    <a href="https://github.com/zxilong37/ThriveX-Server/blob/main/LICENSE" target="_blank">
         <img alt="License: AGPL-3.0" src="https://img.shields.io/badge/License-AGPL--3.0-blue.svg?style=flat-square&logo=gnu" />
     </a>
-    <a href="https://github.com/LiuYuYang01/ThriveX-Server/stargazers" target="_blank">
-        <img alt="Stars" src="https://img.shields.io/github/stars/LiuYuYang01/ThriveX-Server?style=flat-square&logo=github&color=gold" />
+    <a href="https://github.com/zxilong37/ThriveX-Server/stargazers" target="_blank">
+        <img alt="Stars" src="https://img.shields.io/github/stars/zxilong37/ThriveX-Server?style=flat-square&logo=github&color=gold" />
     </a>
-    <a href="https://github.com/LiuYuYang01/ThriveX-Server/network" target="_blank">
-        <img alt="Forks" src="https://img.shields.io/github/forks/LiuYuYang01/ThriveX-Server?style=flat-square&logo=github" />
+    <a href="https://github.com/zxilong37/ThriveX-Server/network" target="_blank">
+        <img alt="Forks" src="https://img.shields.io/github/forks/zxilong37/ThriveX-Server?style=flat-square&logo=github" />
     </a>
 </p>
 
@@ -23,7 +23,7 @@
 
 **ThriveX Server** 是 ThriveX 博客系统的后端服务端，采用 Spring Boot 构建，提供 RESTful API 接口服务。
 
-作为 ThriveX 全栈解决方案的核心部分，Server 后端与前端展示端（[ThriveX-Blog](https://github.com/LiuYuYang01/ThriveX-Blog)）和控制端（[ThriveX-Admin](https://github.com/LiuYuYang01/ThriveX-Admin)）共同构成了一个完整的开源博客生态系统。
+作为 ThriveX 全栈解决方案的核心部分，Server 后端与前端展示端（[ThriveX-Blog](https://github.com/zxilong37/ThriveX-Blog)）和控制端（[ThriveX-Admin](https://github.com/zxilong37/ThriveX-Admin)）共同构成了一个完整的开源博客生态系统。
 
 
 
@@ -93,10 +93,10 @@ ThriveX-Server/
 
 | 名称        | 链接                                                         | 说明         |
 | ----------- | ------------------------------------------------------------ | ------------ |
-| 博客预览    | [https://liuyuyang.net](https://liuyuyang.net)                | 前端博客展示 |
+| 博客预览    | [https://github.com/zxilong37](https://github.com/zxilong37)                | 前端博客展示 |
 | 官网地址    | [https://thrivex.liuyuyang.net](https://thrivex.liuyuyang.net)  | 项目官网     |
 | 文档中心    | [https://docs.liuyuyang.net](https://docs.liuyuyang.net)      | 使用文档     |
-| GitHub 主页 | [https://github.com/LiuYuYang01/ThriveX-Server](https://github.com/LiuYuYang01/ThriveX-Server)  | 源码仓库     |
+| GitHub 主页 | [https://github.com/zxilong37/ThriveX-Server](https://github.com/zxilong37/ThriveX-Server)  | 源码仓库     |
 
 
 
@@ -104,8 +104,8 @@ ThriveX-Server/
 
 | 名称        | 链接                                                         | 说明         |
 | ----------- | ------------------------------------------------------------ | ------------ |
-| 前端展示端  | [https://github.com/LiuYuYang01/ThriveX-Blog](https://github.com/LiuYuYang01/ThriveX-Blog)  | 博客前端     |
-| 控制端      | [https://github.com/LiuYuYang01/ThriveX-Admin](https://github.com/LiuYuYang01/ThriveX-Admin)  | 管理后台     |
+| 前端展示端  | [https://github.com/zxilong37/ThriveX-Blog](https://github.com/zxilong37/ThriveX-Blog)  | 博客前端     |
+| 控制端      | [https://github.com/zxilong37/ThriveX-Admin](https://github.com/zxilong37/ThriveX-Admin)  | 管理后台     |
 
 
 
@@ -126,18 +126,18 @@ ThriveX-Server/
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=LiuYuYang01/ThriveX-Server&type=Date)](https://star-history.com/#LiuYuYang01/ThriveX-Server&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=zxilong37/ThriveX-Server&type=Date)](https://star-history.com/#zxilong37/ThriveX-Server&Date)
 
 
 
 ## 👨‍💻 作者信息
 
-**刘宇阳**
+**郑州 GIS 开发工程师**
 
-- GitHub: [@LiuYuYang01](https://github.com/LiuYuYang01)
-- 我的博客: [https://liuyuyang.net](https://liuyuyang.net)
+- GitHub: [@zxilong37](https://github.com/zxilong37)
+- 我的博客: [https://github.com/zxilong37](https://github.com/zxilong37)
 - 关于我： [https://my.liuyuyang.net](https://my.liuyuyang.net)
-- 邮箱: [liuyuyang1024@yeah.net](mailto:liuyuyang1024@yeah.net)
+- 邮箱: [2069065992@qq.com](mailto:2069065992@qq.com)
 
 
 

@@ -10,16 +10,16 @@ public class CommentFormDTO {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "评论者名称", example = "宇阳", required = true)
+    @ApiModelProperty(value = "评论者名称", example = "郑州 GIS 开发工程师", required = true)
     private String name;
 
     @ApiModelProperty(value = "评论者头像", example = "yuyang.jpg")
     private String avatar;
 
-    @ApiModelProperty(value = "评论者邮箱", example = "liuyuyang1024@yeah.net")
+    @ApiModelProperty(value = "评论者邮箱", example = "2069065992@qq.com")
     private String email;
 
-    @ApiModelProperty(value = "评论者网站", example = "https://blog.liuyuyang.net")
+    @ApiModelProperty(value = "评论者网站", example = "https://github.com/zxilong37")
     private String url;
 
     @ApiModelProperty(value = "评论内容", example = "这是一段评论内容", required = true)

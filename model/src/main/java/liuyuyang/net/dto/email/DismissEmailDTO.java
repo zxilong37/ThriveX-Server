@@ -15,6 +15,6 @@ public class DismissEmailDTO extends EmailDTO {
     String time;
     @ApiModelProperty(value = "评论内容", example = "涉嫌违规", required = true)
     String content;
-    @ApiModelProperty(value = "文章地址", example = "https://liuyuyang.net", required = true)
+    @ApiModelProperty(value = "文章地址", example = "https://github.com/zxilong37", required = true)
     String url;
 }

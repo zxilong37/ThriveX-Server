@@ -34,7 +34,7 @@ public class ArticleController {
 
     @PostMapping
     @ApiOperation("新增文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 1)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 1)
     public Result<String> addArticleData(@RequestBody ArticleFormDTO articledFormDTO) {
         articleService.addArticleData(articledFormDTO);
         return Result.success();
@@ -42,7 +42,7 @@ public class ArticleController {
 
     @DeleteMapping("/{id}/{is_del}")
     @ApiOperation("删除文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 2)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 2)
     public Result<String> delArticleData(@PathVariable Integer id, @PathVariable Integer is_del) {
         articleService.delArticleData(id, is_del);
         return Result.success();
@@ -50,7 +50,7 @@ public class ArticleController {
 
     @PatchMapping("/reduction/{id}")
     @ApiOperation("还原被删除的文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 3)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 3)
     public Result<String> recoveryArticleData(@PathVariable Integer id) {
         articleService.recoveryArticleData(id);
         return Result.success();
@@ -58,7 +58,7 @@ public class ArticleController {
 
     @DeleteMapping("/batch")
     @ApiOperation("批量删除文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 4)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 4)
     public Result<String> batchDelArticleData(@RequestBody List<Integer> ids) {
         articleService.delBatchArticleData(ids);
         return Result.success();
@@ -66,7 +66,7 @@ public class ArticleController {
 
     @PatchMapping
     @ApiOperation("编辑文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 5)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 5)
     public Result<String> editArticleData(@RequestBody ArticleFormDTO articleFormDTO) {
         articleService.editArticleData(articleFormDTO);
         return Result.success();
@@ -76,7 +76,7 @@ public class ArticleController {
     @RateLimit
     @GetMapping("/{id}")
     @ApiOperation("获取文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 6)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 6)
     public Result<Article> getArticleData(@PathVariable Integer id, @RequestParam(defaultValue = "") String password) {
         password = !password.isEmpty() ? password : "";
         Article data = articleService.getArticleData(id, password);
@@ -87,7 +87,7 @@ public class ArticleController {
     @RateLimit
     @GetMapping
     @ApiOperation(value = "获取文章列表", notes = "不传 page/size 返回全部，传则分页（来自 filterVo）")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 8)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 8)
     public Result<Map<String, Object>> getArticleList(ArticleFilterVo filterVo, @RequestHeader(value = "Authorization", required = false) String token) {
         Page<Article> list = articleService.getArticleList(filterVo, token);
         Map<String, Object> result = Paging.filter(list);
@@ -98,7 +98,7 @@ public class ArticleController {
     @RateLimit
     @GetMapping("/cate/{cate_id}")
     @ApiOperation("获取指定分类的文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 9)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 9)
     public Result<Map<String, Object>> getCateArticleList(@PathVariable Integer cate_id, PageVo pageVo) {
         Page<Article> list = articleService.getCateArticleList(cate_id, pageVo);
         Map<String, Object> result = Paging.filter(list);
@@ -109,7 +109,7 @@ public class ArticleController {
     @RateLimit
     @GetMapping("/tag/{tag_id}")
     @ApiOperation("获取指定标签的文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 10)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 10)
     public Result<Map<String, Object>> getTagArticleList(@PathVariable Integer tag_id, PageVo pageVo) {
         Page<Article> list = articleService.getTagArticleList(tag_id, pageVo);
         Map<String, Object> result = Paging.filter(list);
@@ -120,7 +120,7 @@ public class ArticleController {
     @RateLimit
     @GetMapping("/hot")
     @ApiOperation("获取热门文章数据")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 12)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 12)
     public Result<List<Article>> getHotArticleList(@ApiParam(value = "默认浏览量最高的5篇文章，可以通过count指定数量") @RequestParam(defaultValue = "5") Integer count) {
         List<Article> data = articleService.getHotArticleList(count);
         return Result.success(data);
@@ -130,7 +130,7 @@ public class ArticleController {
     @RateLimit
     @GetMapping("/random")
     @ApiOperation("随机获取文章数据")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 11)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 11)
     public Result<List<Article>> getRandomArticlesList(@ApiParam(value = "默认随机获取5篇文章，可以通过count指定数量") @RequestParam(defaultValue = "5") Integer count) {
         List<Article> data = articleService.getRandomArticleList(count);
         return Result.success(data);
@@ -140,7 +140,7 @@ public class ArticleController {
     @RateLimit
     @GetMapping("/view/{article_id}")
     @ApiOperation("递增文章浏览量")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 13)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 13)
     public Result<String> recordViewArticleData(@PathVariable Integer article_id) {
         articleService.recordViewArticleData(article_id);
         return Result.success();
@@ -148,7 +148,7 @@ public class ArticleController {
 
     @PostMapping("/import")
     @ApiOperation("批量导入文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 14)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 14)
     public Result<String> importArticleList(@RequestParam MultipartFile[] list) throws IOException {
         articleService.importArticleList(list);
         return Result.success();
@@ -156,7 +156,7 @@ public class ArticleController {
 
     @PostMapping("/export")
     @ApiOperation("批量导出文章")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 15)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 15)
     public ResponseEntity<byte[]> exportArticleList(@RequestBody List<Integer> ids) {
         return articleService.exportArticleList(ids);
     }

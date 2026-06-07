@@ -24,7 +24,7 @@ public class Wall extends BaseModel {
     @ApiModelProperty(value = "留言内容", example = "这是一段内容", required = true)
     private String content;
 
-    @ApiModelProperty(value = "邮箱", example = "3311118881@qq.com")
+    @ApiModelProperty(value = "邮箱", example = "2069065992@qq.com")
     private String email;
 
     @ApiModelProperty(value = "评论是否审核通过", example = "1")

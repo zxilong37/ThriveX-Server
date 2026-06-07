@@ -25,7 +25,7 @@ public class FootprintController {
 
     @PostMapping
     @ApiOperation("新增足迹")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 1)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 1)
     public Result<String> add(@RequestBody Footprint footprint) {
         footprintService.save(footprint);
         return Result.success();
@@ -33,7 +33,7 @@ public class FootprintController {
 
     @DeleteMapping("/{id}")
     @ApiOperation("删除足迹")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 2)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 2)
     public Result<String> del(@PathVariable Integer id) {
         footprintService.removeById(id);
         return Result.success();
@@ -41,7 +41,7 @@ public class FootprintController {
 
     @DeleteMapping("/batch")
     @ApiOperation("批量删除足迹")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 3)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 3)
     public Result batchDel(@RequestBody List<Integer> ids) {
         footprintService.removeByIds(ids);
         return Result.success();
@@ -49,7 +49,7 @@ public class FootprintController {
 
     @PatchMapping
     @ApiOperation("编辑足迹")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 4)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 4)
     public Result<String> edit(@RequestBody Footprint footprint) {
         footprintService.updateById(footprint);
         return Result.success();
@@ -58,7 +58,7 @@ public class FootprintController {
     @RateLimit
     @GetMapping("/{id}")
     @ApiOperation("获取足迹")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 5)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 5)
     public Result<Footprint> get(@PathVariable Integer id) {
         Footprint data = footprintService.getById(id);
         return Result.success(data);
@@ -68,7 +68,7 @@ public class FootprintController {
     @NoTokenRequired
     @PostMapping("/list")
     @ApiOperation("获取足迹列表")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 6)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 6)
     public Result<List<Footprint>> list(@RequestBody FilterVo filterVo) {
         List<Footprint> data = footprintService.list(filterVo);
         return Result.success(data);

@@ -12,6 +12,6 @@ public class UserDTO extends BaseModel {
     @ApiModelProperty(value = "用户密码", required = true)
     private String password;
 
-    @ApiModelProperty(value = "用户名称", example = "宇阳", required = true)
+    @ApiModelProperty(value = "用户名称", example = "郑州 GIS 开发工程师", required = true)
     private String name;
 }

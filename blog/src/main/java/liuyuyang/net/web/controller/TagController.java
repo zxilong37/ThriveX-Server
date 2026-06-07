@@ -27,7 +27,7 @@ public class TagController {
 
     @PostMapping
     @ApiOperation("新增标签")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 1)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 1)
     public Result<String> add(@RequestBody Tag tag) {
         tagService.addTagData(tag);
         return Result.success();
@@ -35,7 +35,7 @@ public class TagController {
 
     @DeleteMapping("/{id}")
     @ApiOperation("删除标签")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 2)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 2)
     public Result<String> del(@PathVariable Integer id) {
         Tag data = tagService.getById(id);
         if (data == null) return Result.error("该数据不存在");
@@ -45,7 +45,7 @@ public class TagController {
 
     @DeleteMapping("/batch")
     @ApiOperation("批量删除标签")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 3)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 3)
     public Result batchDel(@RequestBody List<Integer> ids) {
         tagService.removeByIds(ids);
         return Result.success();
@@ -53,7 +53,7 @@ public class TagController {
 
     @PatchMapping
     @ApiOperation("编辑标签")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 4)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 4)
     public Result<String> edit(@RequestBody Tag tag) {
         tagService.updateById(tag);
         return Result.success();
@@ -62,7 +62,7 @@ public class TagController {
     @RateLimit
     @GetMapping("/{id}")
     @ApiOperation("获取标签")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 5)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 5)
     public Result<Tag> get(@PathVariable Integer id) {
         Tag data = tagService.getById(id);
         return Result.success(data);
@@ -72,7 +72,7 @@ public class TagController {
     @NoTokenRequired
     @PostMapping("/list")
     @ApiOperation("获取标签列表")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 6)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 6)
     public Result<List<Tag>> list() {
         List<Tag> data = tagService.list();
         return Result.success(data);
@@ -82,7 +82,7 @@ public class TagController {
     @NoTokenRequired
     @PostMapping("/paging")
     @ApiOperation("分页查询标签列表")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 7)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 7)
     public Result paging(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size) {
         Page<Tag> data = tagService.list(page, size);
         Map<String, Object> result = Paging.filter(data);
@@ -94,7 +94,7 @@ public class TagController {
     @RateLimit
     @GetMapping("/article/count")
     @ApiOperation("统计每个标签下的文章数量")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 8)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 8)
     public Result staticArticleCount() {
         List<Tag> list = tagService.staticArticleCount();
         return Result.success(list);

@@ -15,6 +15,6 @@ public class WallEmailDTO extends EmailDTO {
     String your_content;
     @ApiModelProperty(value = "回复内容", example = "必须滴", required = true)
     String reply_content;
-    @ApiModelProperty(value = "文章地址", example = "https://liuyuyang.net", required = true)
+    @ApiModelProperty(value = "文章地址", example = "https://github.com/zxilong37", required = true)
     String url;
 }

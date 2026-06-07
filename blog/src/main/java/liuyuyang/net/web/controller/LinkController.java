@@ -36,7 +36,7 @@ public class LinkController {
     @PostMapping
     @NoTokenRequired
     @ApiOperation("新增网站")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 1)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 1)
     public Result<String> add(@RequestBody Link link, @RequestHeader(value = "Authorization", required = false) String token) throws Exception {
         linkService.add(link, token);
         return Result.success();
@@ -44,7 +44,7 @@ public class LinkController {
 
     @DeleteMapping("/{id}")
     @ApiOperation("删除网站")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 2)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 2)
     public Result<String> del(@PathVariable Integer id) {
         Link data = linkService.getById(id);
         if (data == null) return Result.error("该数据不存在");
@@ -54,7 +54,7 @@ public class LinkController {
 
     @DeleteMapping("/batch")
     @ApiOperation("批量删除网站")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 3)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 3)
     public Result delBatch(@RequestBody List<Integer> ids) {
         linkService.removeByIds(ids);
         return Result.success();
@@ -62,7 +62,7 @@ public class LinkController {
 
     @PatchMapping
     @ApiOperation("编辑网站")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 4)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 4)
     public Result<String> edit(@RequestBody Link link) {
         linkService.updateById(link);
         return Result.success();
@@ -71,7 +71,7 @@ public class LinkController {
     @RateLimit
     @GetMapping("/{id}")
     @ApiOperation("获取网站")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 5)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 5)
     public Result<Link> get(@PathVariable Integer id) {
         Link data = linkService.getById(id);
         return Result.success(data);
@@ -81,7 +81,7 @@ public class LinkController {
     @NoTokenRequired
     @PostMapping("/list")
     @ApiOperation("获取网站列表")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 6)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 6)
     public Result<List<Link>> list(@RequestBody LinkFilterVo filterVo) {
         List<Link> data = linkService.list(filterVo);
         return Result.success(data);
@@ -91,7 +91,7 @@ public class LinkController {
     @NoTokenRequired
     @PostMapping("/paging")
     @ApiOperation("分页查询网站列表")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 7)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 7)
     public Result paging(@RequestBody LinkFilterVo filterVo, PageVo pageVo) {
         Page<Link> data = linkService.paging(filterVo, pageVo);
         Map<String, Object> result = Paging.filter(data);
@@ -102,7 +102,7 @@ public class LinkController {
     @RateLimit
     @GetMapping("/type")
     @ApiOperation("获取网站类型列表")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 8)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 8)
     public Result<List<LinkType>> typeList() {
         List<LinkType> data = linkTypeMapper.selectList(null);
         return Result.success(data);
@@ -110,7 +110,7 @@ public class LinkController {
 
     @PatchMapping("/audit/{id}")
     @ApiOperation("审核指定网站")
-    @ApiOperationSupport(author = "刘宇阳 | liuyuyang1024@yeah.net", order = 9)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 9)
     public Result auditWeb(@PathVariable Integer id) {
         Link data = linkService.getById(id);
 

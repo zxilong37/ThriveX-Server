@@ -89,7 +89,7 @@ public class OssController {
 
     @GetMapping("/platform")
     @ApiOperation("获取目前支持的oss平台")
-    @ApiOperationSupport(author = "宇阳", order = 9)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师", order = 9)
     public Result<List<Map>> getPlatform() {
         return Result.success(ossService.getPlatform());
     }
