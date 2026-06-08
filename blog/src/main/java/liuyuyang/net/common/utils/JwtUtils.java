@@ -21,6 +21,10 @@ public class JwtUtils {
         }
     }
 
+    public static JwtProperties getJwtProperties() {
+        return jwtProperties;
+    }
+
     /**
      * 生成jwt
      * 使用Hs256算法, 私匙使用固定秘钥

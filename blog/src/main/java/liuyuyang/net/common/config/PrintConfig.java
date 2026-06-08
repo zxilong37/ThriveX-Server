@@ -4,11 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
 public class PrintConfig {
+    private static final Logger log = LoggerFactory.getLogger(PrintConfig.class);
     private final ConfigurableEnvironment environment;
 
     public PrintConfig(ConfigurableEnvironment environment) {

@@ -7,6 +7,8 @@ import liuyuyang.net.model.EnvConfig;
 import liuyuyang.net.web.service.StatisService;
 import liuyuyang.net.web.service.EnvConfigService;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -21,6 +23,7 @@ import java.util.Map;
 @Service
 @Transactional
 public class StatisServiceImpl implements StatisService {
+    private static final Logger log = LoggerFactory.getLogger(StatisServiceImpl.class);
     @Resource
     private WebClient webClient;
     @Resource

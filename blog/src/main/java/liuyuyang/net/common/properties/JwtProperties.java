@@ -11,4 +11,16 @@ public class JwtProperties {
     private String secretKey;
     private long ttl;
     private String tokenName;
+
+    public String getSecretKey() {
+        return secretKey;
+    }
+
+    public long getTtl() {
+        return ttl;
+    }
+
+    public String getTokenName() {
+        return tokenName;
+    }
 }

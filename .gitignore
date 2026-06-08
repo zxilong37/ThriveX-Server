@@ -7,5 +7,9 @@ blog/src/main/resources/application-local.yml
 docker/mysql_data
 docker/backup
 
+data/
+blog/data/
+启动
+
 .DS_Store
 **/.DS_Store

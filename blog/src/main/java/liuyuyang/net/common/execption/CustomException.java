@@ -28,6 +28,10 @@ public class CustomException extends RuntimeException {
         this.message = message;
     }
 
+    public Integer getCode() {
+        return code;
+    }
+
     @Override
     public String toString() {
         return "CustomException{" +

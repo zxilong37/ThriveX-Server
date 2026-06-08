@@ -18,6 +18,8 @@ import liuyuyang.net.web.service.ArticleTagService;
 import liuyuyang.net.web.service.CateService;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +40,7 @@ import java.util.Collection;
 @Transactional
 @Slf4j
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements ArticleService {
+    private static final Logger log = LoggerFactory.getLogger(ArticleServiceImpl.class);
     @Resource
     private ArticleMapper articleMapper;
     @Resource
@@ -827,13 +830,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             if (files != null) {
                 for (java.io.File file : files) {
                     if (!file.delete()) {
-                        log.warn("无法删除临时文件: {}", file.getAbsolutePath());
+                        log.warn("无法删除临时文件: " + file.getAbsolutePath());
                     }
                 }
             }
 
             if (!tempDir.delete()) {
-                log.warn("无法删除临时目录: {}", tempDir.getAbsolutePath());
+                log.warn("无法删除临时目录: " + tempDir.getAbsolutePath());
             }
 
             // 返回ResponseEntity

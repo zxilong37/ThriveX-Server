@@ -8,6 +8,8 @@ import io.swagger.annotations.ApiParam;
 import liuyuyang.net.common.utils.Result;
 import liuyuyang.net.web.service.impl.StatisServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,6 +19,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/statis")
 public class StatisController {
+    private static final Logger log = LoggerFactory.getLogger(StatisController.class);
     @Resource
     private StatisServiceImpl baiduService;
 

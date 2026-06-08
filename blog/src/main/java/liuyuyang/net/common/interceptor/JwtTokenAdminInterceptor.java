@@ -11,6 +11,8 @@ import liuyuyang.net.model.UserToken;
 import liuyuyang.net.web.mapper.UserTokenMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -27,6 +29,7 @@ import java.util.List;
 @Component
 @Slf4j
 public class JwtTokenAdminInterceptor implements HandlerInterceptor {
+    private static final Logger log = LoggerFactory.getLogger(JwtTokenAdminInterceptor.class);
     @Resource
     private JwtProperties jwtProperties;
     @Resource
