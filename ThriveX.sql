@@ -643,6 +643,106 @@ INSERT INTO `wall_cate` VALUES (1,'全部','all',1),(2,'想对我说的话','inf
 UNLOCK TABLES;
 
 --
+-- Table structure for table `work_report`
+--
+
+DROP TABLE IF EXISTS `work_report`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `work_report` (
+                               `id` int NOT NULL AUTO_INCREMENT,
+                               `user_id` int NOT NULL,
+                               `type` varchar(20) NOT NULL,
+                               `period` varchar(32) NOT NULL,
+                               `title` varchar(255) DEFAULT NULL,
+                               `summary` text,
+                               `details` text,
+                               `next_plan` text,
+                               `attachment_note` text,
+                               `status` varchar(20) DEFAULT 'draft',
+                               `draft_version` int DEFAULT '1',
+                               `create_time` varchar(32) DEFAULT NULL,
+                               `update_time` varchar(32) DEFAULT NULL,
+                               PRIMARY KEY (`id`),
+                               UNIQUE KEY `uk_work_report_user_type_period` (`user_id`,`type`,`period`),
+                               KEY `idx_work_report_user_type` (`user_id`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='work report drafts';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `work_report`
+--
+
+LOCK TABLES `work_report` WRITE;
+/*!40000 ALTER TABLE `work_report` DISABLE KEYS */;
+/*!40000 ALTER TABLE `work_report` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `work_report_export`
+--
+
+DROP TABLE IF EXISTS `work_report_export`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `work_report_export` (
+                                      `id` int NOT NULL AUTO_INCREMENT,
+                                      `user_id` int NOT NULL,
+                                      `report_id` int DEFAULT NULL,
+                                      `type` varchar(20) NOT NULL,
+                                      `period` varchar(32) NOT NULL,
+                                      `file_name` varchar(255) NOT NULL,
+                                      `file_path` text NOT NULL,
+                                      `source` varchar(20) DEFAULT 'manual',
+                                      `export_time` varchar(32) DEFAULT NULL,
+                                      `create_time` varchar(32) DEFAULT NULL,
+                                      PRIMARY KEY (`id`),
+                                      KEY `idx_work_report_export_user` (`user_id`,`export_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='work report export history';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `work_report_export`
+--
+
+LOCK TABLES `work_report_export` WRITE;
+/*!40000 ALTER TABLE `work_report_export` DISABLE KEYS */;
+/*!40000 ALTER TABLE `work_report_export` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `work_report_schedule`
+--
+
+DROP TABLE IF EXISTS `work_report_schedule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `work_report_schedule` (
+                                        `id` int NOT NULL AUTO_INCREMENT,
+                                        `user_id` int NOT NULL,
+                                        `type` varchar(20) NOT NULL,
+                                        `enabled` tinyint(1) DEFAULT '0',
+                                        `export_time` varchar(8) DEFAULT NULL,
+                                        `weekly_day` int DEFAULT '5',
+                                        `monthly_mode` varchar(20) DEFAULT 'last_day',
+                                        `last_export_period` varchar(32) DEFAULT NULL,
+                                        `create_time` varchar(32) DEFAULT NULL,
+                                        `update_time` varchar(32) DEFAULT NULL,
+                                        PRIMARY KEY (`id`),
+                                        UNIQUE KEY `uk_work_report_schedule_user_type` (`user_id`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='work report export schedule';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `work_report_schedule`
+--
+
+LOCK TABLES `work_report_schedule` WRITE;
+/*!40000 ALTER TABLE `work_report_schedule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `work_report_schedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `web_config`
 --
 

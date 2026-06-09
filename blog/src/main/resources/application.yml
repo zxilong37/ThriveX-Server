@@ -3,6 +3,9 @@ spring:
     name: service-system
   profiles:
     active: pro
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   jackson:
     # 统一下划线格式如：is_del
 #    property-naming-strategy: SNAKE_CASE
