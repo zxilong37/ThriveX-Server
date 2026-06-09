@@ -176,7 +176,7 @@ CREATE TABLE `cate` (
                         PRIMARY KEY (`id`) USING BTREE,
                         UNIQUE KEY `name` (`name`) USING BTREE,
                         UNIQUE KEY `cate_pk` (`mark`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,7 @@ CREATE TABLE `cate` (
 
 LOCK TABLES `cate` WRITE;
 /*!40000 ALTER TABLE `cate` DISABLE KEYS */;
-INSERT INTO `cate` VALUES (1,'默认分类','💻','/','kfbj',0,1,'cate'),(68,'足迹','⛳️','/footprint','zj',83,9,'nav'),(69,'关于我','👋','/my','my',83,16,'nav'),(70,'朋友圈','😇','/friend','pyq',83,11,'nav'),(71,'留言墙','💌','/wall/all','wall',83,12,'nav'),(72,'GitHub','🔥','https://github.com/zxilong37/ThriveX-Blog','github',83,999,'nav'),(73,'统计','📊','/data','data',83,8,'nav'),(74,'闪念','🏕️','/record','record',83,9,'nav'),(77,'我的设备','🔭','/equipment','wdsb',83,15,'nav'),(78,'标签墙','🏷️','/tags','bqy',83,13,'nav'),(79,'我的履历','💪','/resume','wdll',83,16,'nav'),(81,'鱼塘','🐟','/fishpond','yt',83,10,'nav'),(83,'探索','🧩','/','ts',0,999,'nav');
+INSERT INTO `cate` VALUES (1,'默认分类','💻','/','kfbj',0,1,'cate'),(68,'足迹','⛳️','/footprint','zj',83,9,'nav'),(69,'关于我','👋','/my','my',83,16,'nav'),(70,'朋友圈','😇','/friend','pyq',83,11,'nav'),(71,'留言墙','💌','/wall/all','wall',83,12,'nav'),(72,'GitHub','🔥','https://github.com/zxilong37/ThriveX-Blog','github',83,999,'nav'),(73,'统计','📊','/data','data',83,8,'nav'),(74,'闪念','🏕️','/record','record',83,9,'nav'),(77,'我的设备','🔭','/equipment','wdsb',83,15,'nav'),(78,'标签墙','🏷️','/tags','bqy',83,13,'nav'),(79,'我的履历','💪','/resume','wdll',83,16,'nav'),(81,'鱼塘','🐟','/fishpond','yt',83,10,'nav'),(83,'探索','🧩','/','ts',0,999,'nav'),(87,'实时热点','⚡','/hotspot','hotspot',0,6,'nav');
 /*!40000 ALTER TABLE `cate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -740,6 +740,46 @@ CREATE TABLE `work_report_schedule` (
 LOCK TABLES `work_report_schedule` WRITE;
 /*!40000 ALTER TABLE `work_report_schedule` DISABLE KEYS */;
 /*!40000 ALTER TABLE `work_report_schedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hotspot`
+--
+
+DROP TABLE IF EXISTS `hotspot`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hotspot` (
+                           `id` int NOT NULL AUTO_INCREMENT,
+                           `platform` varchar(64) NOT NULL COMMENT '平台标识',
+                           `platform_name` varchar(64) NOT NULL COMMENT '平台名称',
+                           `title` varchar(500) NOT NULL COMMENT '热点标题',
+                           `url` varchar(1000) DEFAULT NULL COMMENT '热点链接',
+                           `cover` varchar(1000) DEFAULT NULL COMMENT '封面图',
+                           `summary` text COMMENT '摘要',
+                           `rank_no` int DEFAULT NULL COMMENT '榜单排名',
+                           `hot_value` varchar(100) DEFAULT NULL COMMENT '热度值',
+                           `fetched_at` varchar(32) NOT NULL COMMENT '抓取时间戳',
+                           `raw_json` json DEFAULT NULL COMMENT '原始JSON',
+                           `title_hash` char(32) NOT NULL COMMENT '标题MD5',
+                           `link_hash` char(32) DEFAULT NULL COMMENT '链接MD5',
+                           `created_at` varchar(32) DEFAULT NULL COMMENT '创建时间戳',
+                           `updated_at` varchar(32) DEFAULT NULL COMMENT '更新时间戳',
+                           PRIMARY KEY (`id`),
+                           UNIQUE KEY `uk_hotspot_platform_title` (`platform`,`title_hash`),
+                           UNIQUE KEY `uk_hotspot_platform_link` (`platform`,`link_hash`),
+                           KEY `idx_hotspot_platform_rank` (`platform`,`rank_no`),
+                           KEY `idx_hotspot_fetched_at` (`fetched_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='实时热点';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hotspot`
+--
+
+LOCK TABLES `hotspot` WRITE;
+/*!40000 ALTER TABLE `hotspot` DISABLE KEYS */;
+/*!40000 ALTER TABLE `hotspot` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

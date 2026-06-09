@@ -35,6 +35,10 @@ public final class UrlSecurityUtils {
     }
 
     public static void validateExternalHttpUrl(String fieldName, String rawUrl) {
+        validateHttpUrl(fieldName, rawUrl, false);
+    }
+
+    public static void validateHttpUrl(String fieldName, String rawUrl, boolean allowLocalAddress) {
         if (!StringUtils.hasText(rawUrl)) {
             return;
         }
@@ -51,14 +55,14 @@ public final class UrlSecurityUtils {
         }
 
         String lowerHost = host.toLowerCase(Locale.ROOT);
-        if ("localhost".equals(lowerHost)) {
+        if (!allowLocalAddress && "localhost".equals(lowerHost)) {
             throw new CustomException(400, fieldName + " 不允许使用本地域名");
         }
 
         try {
             InetAddress[] addresses = InetAddress.getAllByName(host);
             for (InetAddress address : addresses) {
-                if (isInternalAddress(address)) {
+                if (!allowLocalAddress && isInternalAddress(address)) {
                     throw new CustomException(400, fieldName + " 不允许使用内网或本地地址");
                 }
             }
