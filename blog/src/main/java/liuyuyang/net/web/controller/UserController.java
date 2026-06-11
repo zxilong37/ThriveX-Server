@@ -96,9 +96,19 @@ public class UserController {
         return Result.success("登录成功", result);
     }
 
+    @NoTokenRequired
+    @RateLimit
+    @PostMapping("/register")
+    @ApiOperation("初始化注册首个管理员")
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 9)
+    public Result<Map> register(@RequestBody UserDTO user) {
+        Map<String, Object> result = userService.register(user);
+        return Result.success("注册成功", result);
+    }
+
     @PatchMapping("/pass")
     @ApiOperation("修改用户密码")
-    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 9)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 10)
     public Result<String> editPass(@RequestBody EditPassDTO data) {
         userService.editPass(data);
         return Result.success("密码修改成功");
@@ -106,7 +116,7 @@ public class UserController {
 
     @GetMapping("/check")
     @ApiOperation("校验当前用户Token是否有效")
-    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 10)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 11)
     public Result checkPrem(String token) {
         userService.check(token);
         return Result.success();
@@ -116,7 +126,7 @@ public class UserController {
     @RateLimit
     @GetMapping("/author")
     @ApiOperation("获取作者信息")
-    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 11)
+    @ApiOperationSupport(author = "郑州 GIS 开发工程师 | 2069065992@qq.com", order = 12)
     public Result<User> getAuthor() {
         User data = userService.get(1);
         return Result.success(data);

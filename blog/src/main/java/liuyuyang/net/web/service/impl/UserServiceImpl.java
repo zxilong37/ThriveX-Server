@@ -140,6 +140,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
+    public Map<String, Object> register(UserDTO user) {
+        if (userMapper.selectCount(new QueryWrapper<User>()) > 0) {
+            throw new CustomException(400, "系统已完成初始化，请由管理员在后台新增用户");
+        }
+        add(user);
+
+        UserLoginDTO loginDTO = new UserLoginDTO();
+        loginDTO.setUsername(user.getUsername());
+        loginDTO.setPassword(user.getPassword());
+        return login(loginDTO);
+    }
+
+    @Override
     public void editPass(EditPassDTO data) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", data.getOldUsername());

@@ -128,6 +128,164 @@ INSERT INTO `article_tag` VALUES (1,1,3),(2,2,3),(13,5,3),(14,5,91);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `agent_session`
+--
+
+DROP TABLE IF EXISTS `agent_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `agent_session` (
+                                 `id` int NOT NULL AUTO_INCREMENT,
+                                 `user_id` int NOT NULL COMMENT '用户 ID',
+                                 `title` varchar(255) NOT NULL COMMENT '会话标题',
+                                 `mode` varchar(50) DEFAULT NULL COMMENT '会话模式',
+                                 `create_time` varchar(32) DEFAULT NULL COMMENT '创建时间',
+                                 `update_time` varchar(32) DEFAULT NULL COMMENT '更新时间',
+                                 PRIMARY KEY (`id`),
+                                 KEY `idx_agent_session_user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='智能体会话';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agent_session`
+--
+
+LOCK TABLES `agent_session` WRITE;
+/*!40000 ALTER TABLE `agent_session` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agent_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `agent_message`
+--
+
+DROP TABLE IF EXISTS `agent_message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `agent_message` (
+                                 `id` int NOT NULL AUTO_INCREMENT,
+                                 `session_id` int NOT NULL COMMENT '会话 ID',
+                                 `user_id` int NOT NULL COMMENT '用户 ID',
+                                 `message_role` varchar(30) NOT NULL COMMENT '消息角色',
+                                 `intent` varchar(50) DEFAULT NULL COMMENT '识别意图',
+                                 `content` longtext NOT NULL COMMENT '消息内容',
+                                 `citations` longtext COMMENT '引用来源 JSON',
+                                 `result_id` int DEFAULT NULL COMMENT '关联结果 ID',
+                                 `create_time` varchar(32) DEFAULT NULL COMMENT '创建时间',
+                                 PRIMARY KEY (`id`),
+                                 KEY `idx_agent_message_session` (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='智能体消息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agent_message`
+--
+
+LOCK TABLES `agent_message` WRITE;
+/*!40000 ALTER TABLE `agent_message` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agent_message` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `document_task`
+--
+
+DROP TABLE IF EXISTS `document_task`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `document_task` (
+                                 `id` int NOT NULL AUTO_INCREMENT,
+                                 `user_id` int NOT NULL COMMENT '用户 ID',
+                                 `session_id` int DEFAULT NULL COMMENT '会话 ID',
+                                 `title` varchar(255) NOT NULL COMMENT '文档标题',
+                                 `doc_type` varchar(50) NOT NULL COMMENT '文档类型',
+                                 `status` varchar(30) NOT NULL DEFAULT 'draft' COMMENT '任务状态',
+                                 `prompt` longtext NOT NULL COMMENT '用户提示词',
+                                 `outline` longtext COMMENT '文档大纲',
+                                 `citations` longtext COMMENT '引用来源 JSON',
+                                 `create_time` varchar(32) DEFAULT NULL COMMENT '创建时间',
+                                 `update_time` varchar(32) DEFAULT NULL COMMENT '更新时间',
+                                 PRIMARY KEY (`id`),
+                                 KEY `idx_document_task_user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文档生成任务';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `document_task`
+--
+
+LOCK TABLES `document_task` WRITE;
+/*!40000 ALTER TABLE `document_task` DISABLE KEYS */;
+/*!40000 ALTER TABLE `document_task` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `document_result`
+--
+
+DROP TABLE IF EXISTS `document_result`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `document_result` (
+                                   `id` int NOT NULL AUTO_INCREMENT,
+                                   `task_id` int NOT NULL COMMENT '任务 ID',
+                                   `user_id` int NOT NULL COMMENT '用户 ID',
+                                   `title` varchar(255) NOT NULL COMMENT '文档标题',
+                                   `doc_type` varchar(50) NOT NULL COMMENT '文档类型',
+                                   `format` varchar(30) NOT NULL DEFAULT 'markdown' COMMENT '输出格式',
+                                   `content` longtext NOT NULL COMMENT '文档正文',
+                                   `citations` longtext COMMENT '引用来源 JSON',
+                                   `review_score` int DEFAULT NULL COMMENT '审校分数',
+                                   `review_passed` tinyint DEFAULT '0' COMMENT '审校是否通过',
+                                   `review_issues` longtext COMMENT '审校问题 JSON',
+                                   `create_time` varchar(32) DEFAULT NULL COMMENT '创建时间',
+                                   `update_time` varchar(32) DEFAULT NULL COMMENT '更新时间',
+                                   PRIMARY KEY (`id`),
+                                   KEY `idx_document_result_user` (`user_id`),
+                                   KEY `idx_document_result_task` (`task_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文档生成结果';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `document_result`
+--
+
+LOCK TABLES `document_result` WRITE;
+/*!40000 ALTER TABLE `document_result` DISABLE KEYS */;
+/*!40000 ALTER TABLE `document_result` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `agent_tool_log`
+--
+
+DROP TABLE IF EXISTS `agent_tool_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `agent_tool_log` (
+                                  `id` int NOT NULL AUTO_INCREMENT,
+                                  `user_id` int DEFAULT NULL COMMENT '用户 ID',
+                                  `task_id` int DEFAULT NULL COMMENT '任务 ID',
+                                  `tool_name` varchar(100) NOT NULL COMMENT '工具名称',
+                                  `params_summary` varchar(500) DEFAULT NULL COMMENT '参数摘要',
+                                  `status` varchar(30) NOT NULL COMMENT '执行状态',
+                                  `error_message` varchar(500) DEFAULT NULL COMMENT '错误信息',
+                                  `create_time` varchar(32) DEFAULT NULL COMMENT '创建时间',
+                                  PRIMARY KEY (`id`),
+                                  KEY `idx_agent_tool_log_task` (`task_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='智能体工具日志';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agent_tool_log`
+--
+
+LOCK TABLES `agent_tool_log` WRITE;
+/*!40000 ALTER TABLE `agent_tool_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agent_tool_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `assistant`
 --
 
@@ -155,6 +313,72 @@ LOCK TABLES `assistant` WRITE;
 /*!40000 ALTER TABLE `assistant` DISABLE KEYS */;
 INSERT INTO `assistant` VALUES (2,'测试助手','xxxxxxxxxxxxxxxxxx','https://api.deepseek.com','deepseek-chat',1);
 /*!40000 ALTER TABLE `assistant` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `knowledge_source`
+--
+
+DROP TABLE IF EXISTS `knowledge_source`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `knowledge_source` (
+                                    `id` int NOT NULL AUTO_INCREMENT,
+                                    `name` varchar(255) NOT NULL COMMENT '知识来源名称',
+                                    `source_type` varchar(50) NOT NULL COMMENT '知识来源类型',
+                                    `source_path` varchar(500) NOT NULL COMMENT '知识来源路径',
+                                    `description` varchar(500) DEFAULT NULL COMMENT '知识来源说明',
+                                    `enabled` tinyint NOT NULL DEFAULT '1' COMMENT '是否启用',
+                                    `chunk_count` int NOT NULL DEFAULT '0' COMMENT '分块数量',
+                                    `index_status` varchar(30) NOT NULL DEFAULT 'pending' COMMENT '索引状态',
+                                    `last_indexed_time` varchar(32) DEFAULT NULL COMMENT '最后索引时间',
+                                    `create_time` varchar(32) DEFAULT NULL COMMENT '创建时间',
+                                    `update_time` varchar(32) DEFAULT NULL COMMENT '更新时间',
+                                    PRIMARY KEY (`id`),
+                                    UNIQUE KEY `uk_knowledge_source_path` (`source_path`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='知识库来源';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `knowledge_source`
+--
+
+LOCK TABLES `knowledge_source` WRITE;
+/*!40000 ALTER TABLE `knowledge_source` DISABLE KEYS */;
+/*!40000 ALTER TABLE `knowledge_source` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `knowledge_chunk`
+--
+
+DROP TABLE IF EXISTS `knowledge_chunk`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `knowledge_chunk` (
+                                   `id` int NOT NULL AUTO_INCREMENT,
+                                   `source_id` int NOT NULL COMMENT '知识来源 ID',
+                                   `title` varchar(255) DEFAULT NULL COMMENT '分块标题',
+                                   `content` longtext NOT NULL COMMENT '分块正文',
+                                   `source_path` varchar(500) NOT NULL COMMENT '知识来源路径',
+                                   `source_type` varchar(50) NOT NULL COMMENT '知识来源类型',
+                                   `tags` varchar(255) DEFAULT NULL COMMENT '标签',
+                                   `chunk_order` int NOT NULL DEFAULT '0' COMMENT '分块顺序',
+                                   `content_hash` char(32) DEFAULT NULL COMMENT '内容摘要 Hash',
+                                   `create_time` varchar(32) DEFAULT NULL COMMENT '创建时间',
+                                   PRIMARY KEY (`id`),
+                                   KEY `idx_knowledge_chunk_source` (`source_id`),
+                                   KEY `idx_knowledge_chunk_hash` (`content_hash`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='知识库分块';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `knowledge_chunk`
+--
+
+LOCK TABLES `knowledge_chunk` WRITE;
+/*!40000 ALTER TABLE `knowledge_chunk` DISABLE KEYS */;
+/*!40000 ALTER TABLE `knowledge_chunk` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
